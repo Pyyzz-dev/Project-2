@@ -12,23 +12,9 @@ var router = express.Router();
 /* GET home page. */
 var checkLogin = (req,res,next)=>{
   var token = req.cookies.token;
-  var decodeId = jwt.verify(token, "nodemyK6");
-  accountModel.AccountModel.find({
-    _id: decodeId.payload
-  }).then(function(data){
-    if(data){
-      res.data = data;
-      next();
-    }else{
-      res.json({
-        err: true,
-        message: "You haven't been login ever"
-      })
-    }
-  })
-}
-var checkLogin = (req,res,next)=>{
-  var token = req.cookies.token;
+  if(!token){
+    return res.redirect("/login");
+  }
   var decodeId = jwt.verify(token, "nodemyK6");
   accountModel.AccountModel.find({
     _id: decodeId.payload

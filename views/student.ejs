@@ -115,6 +115,21 @@
         }
         document.cookie = name + "=" + (value || "") + expires + "; path=/";
     }
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
     $("body").ready(function () {
         $(".general").css("display", "none");
         $(".btn-Save").css("display", "none");
@@ -212,7 +227,7 @@
             $(".modal").css("display", "none");
         })
     }
-    function clickDeletemodal(idBook, id){
+    function clickDeletemodal(idBook, id) {
         var template = `
         <div class="modal" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -300,7 +315,7 @@
                 if (data.message == "Add book successful!!!") {
                     alert("Add book successful!!");
                     window.location.reload();
-                } else if(data.message == "This book is existed!!!"){
+                } else if (data.message == "This book is existed!!!") {
                     var template = `
                         <div class="modal" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
@@ -328,10 +343,10 @@
                     $(".close").click(function () {
                         $("#exampleModal2").css("display", "none");
                     })
-                    $(".btn-Sure1").click(function(){
+                    $(".btn-Sure1").click(function () {
                         $("#exampleModal2").css("display", "none");
                     })
-                } else if(data.message == "This book is not exist"){
+                } else if (data.message == "This book is not exist") {
                     var template = `
                         <div class="modal" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
@@ -363,7 +378,7 @@
                     $(".btn-Cancel").click(function () {
                         $("#exampleModal3").css("display", "none");
                     })
-                    $(".btn-Sure2").click(function(){
+                    $(".btn-Sure2").click(function () {
                         window.location.href = "/manager";
                     })
                 }
