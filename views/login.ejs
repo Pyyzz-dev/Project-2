@@ -44,6 +44,13 @@
     </div>
 </body>
 <script>
+    function checkBlankLogin() {
+        if ($("#username").val() == "") {
+            alert("Username is blank. Please input");
+        } else if ($("#password").val() == "") {
+            alert("Password is blank. Please input");
+        }
+    }
     const togglePassword = document.getElementById("togglePassword");
     const inputPassword = document.getElementById("password");
     const onToggleTypePassword = () =>{
@@ -58,6 +65,7 @@
     togglePassword.addEventListener("click", onToggleTypePassword);
 
     $("#btn").click(function () {
+        checkBlankLogin();
         $.ajax({
             url: "/login",
             type: "POST",

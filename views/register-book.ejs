@@ -41,7 +41,15 @@
     </div>
 </body>
 <script>
+    function checkBlankRegisterBook() {
+        if ($("#name").val() == "") {
+            alert("Namebook is blank. Please input");
+        } else if ($("#author").val() == "") {
+            alert("Author is blank. Please input");
+        }
+    }
     $("#btn").click(function(){
+        checkBlankRegisterBook();
         $.ajax({
             url: "/register-book",
             type:"POST",

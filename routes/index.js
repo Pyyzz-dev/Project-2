@@ -52,6 +52,9 @@ router.get("/register-book", (req,res,next)=>{
 })
 
 router.post("/register", (req,res,next)=>{
+  if(!req.body.username || !req.body.password){
+    return res.redirect("/register");
+  }
   accountModel.AccountModel.find({
     username: req.body.username
   }).then(function(data){

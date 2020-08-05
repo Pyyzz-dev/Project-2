@@ -46,6 +46,13 @@
     </div>
 </body>
 <script>
+    function checkBlankRegister() {
+        if ($("#username").val() == "") {
+            alert("Username is blank. Please input");
+        } else if ($("#password").val() == "") {
+            alert("Password is blank. Please input");
+        }
+    }
     const togglePassword = document.getElementById("togglePassword");
     const inputPassword = document.getElementById("password");
     const onToggleTypePassword = () =>{
@@ -70,6 +77,7 @@
         })
     })
     $("#btn").click(function(){
+        checkBlankRegister();
         $.ajax({
             url: "/register",
             type:"POST",
