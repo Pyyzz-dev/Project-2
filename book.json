@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "5f25353ec35a5427f48970b5"
+  },
+  "name": "Tuổi thơ dữ dội",
+  "author": "Phùng Quán",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f253562e91d3a0a1c26ddcd"
+  },
+  "name": "Tôi thấy hoa vàng trên cỏ xanh",
+  "author": "Nguyễn Nhật Ánh",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f28e8f134bcfe0d28c4a0dd"
+  },
+  "name": "Kính Vạn Hoa",
+  "author": "Nguyễn Nhật Ánh",
+  "__v": 0
+}]

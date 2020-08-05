@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="/javascripts/jquery/jquery/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="/javascripts/bootstrap/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="btn-group-vertical" role="group" aria-label="Basic example">
+            <button type="button" id="btnStudent" class="btn btn-secondary">Student</button>
+            <button type="button" id="btnTeacher" class="btn btn-secondary">Teacher</button>
+            <button type="button" id="btnManager" class="btn btn-secondary">Manager</button>
+        </div>
+
+        <div class="container-fluid px-5">
+            <div class="row justify-content-end">
+                <button type="button" id="btn-Back" class="btn btn-outline-dark">Back</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+    $("#btnStudent").click(function () {
+        $.ajax({
+            url: "/student",
+            type: "POST",
+            data: {
+                token: getCookie("token")
+            }
+        }).then(function (data) {
+            if (data.err == false) {
+                window.location.href = "/student";
+            } else {
+                alert("Mày không có quyền");
+                window.location.href = "/home";
+            }
+        })
+    })
+    $("#btnTeacher").click(function () {
+        $.ajax({
+            url: "/teacher",
+            type: "POST",
+            data: {
+                token: getCookie("token")
+            }
+        }).then(function (data) {
+            if (data.err == false) {
+                window.location.href = "/teacher";
+            } else {
+                alert("Mày không có quyền");
+                window.location.href = "/home";
+            }
+        })
+    })
+    $("#btnManager").click(function () {
+        $.ajax({
+            url: "/manager",
+            type: "POST",
+            data: {
+                token: getCookie("token")
+            }
+        }).then(function (data) {
+            if (data.err == false) {
+                window.location.href = "/manager";
+            } else {
+                alert("Mày không có quyền");
+                window.location.href = "/home";
+            }
+        })
+    })
+    $("#btn-Back").click(function () {
+        window.location.href = "/login";
+    })
+
+
+</script>
+
+</html>

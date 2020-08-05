@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <script src="/javascripts/jquery/jquery/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="/javascripts/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/javascripts/fontawesome/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sign">
+            <div class="header">
+                <h1>Register</h1>
+            </div>
+            <div class="main">
+                <form>
+                    <div class="role d-flex justify-content-center">
+                        <input type="text" value="" id="role" placeholder="Role">
+                    </div>
+                    <br>
+                    <input type="text" value="" id="username" placeholder="Username">
+                    <br>
+                    <div class="password-toggle">
+                        <input type="password" value="" id="password" placeholder="Password">
+                        <span id="togglePassword" class="fas fa-eye"></span>
+                    </div>
+                    <br>       
+                    <button href="#" type="button" id="btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <h6 style="font-weight: bold">Register</h6>          
+                    </button>
+                </form>
+            </div>
+            <span>
+                <ul>
+                    <li><a href="/login">Login</a></li>
+                </ul>
+            </span>
+        </div>
+    </div>
+</body>
+<script>
+    const togglePassword = document.getElementById("togglePassword");
+    const inputPassword = document.getElementById("password");
+    const onToggleTypePassword = () =>{
+        togglePassword.classList.toggle("fa-eye-slash");
+
+        if(inputPassword.type === "password"){
+            inputPassword.type = "text";
+        }else{
+            inputPassword.type = "password";
+        }
+    };
+    togglePassword.addEventListener("click", onToggleTypePassword);
+    $("body").ready(function(){
+        $("#role").css("display","none");
+        $.ajax({
+            url: "/role",
+            type:"GET"
+        }).then(data=>{
+            if(data.data[0].role > 1){
+                $("#role").css("display","flex");
+            }
+        })
+    })
+    $("#btn").click(function(){
+        $.ajax({
+            url: "/register",
+            type:"POST",
+            data:{
+                username: $("#username").val(),
+                password: $("#password").val(),
+                role: $("#role").val()
+            }
+        }).then(function(data){
+            if(data.err == false){
+                alert("Register successful");
+                window.location.href = "/login";
+            }else{
+                alert("Register failed");
+                window.location.href = "/register";
+            }
+        })
+    })
+</script>
+</html>

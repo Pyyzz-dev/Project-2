@@ -1,0 +1,42 @@
+body {
+  text-align: center;
+  background-color: #1d1d22;
+}
+.text {
+  font-size: 3em;
+  font-weight: bold;
+  line-height: 1;
+  position: relative;
+  display: inline-block;
+  margin: .25em;
+  padding: .5em .75em;
+  text-align: center;
+  color: #fff;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.clip-text:before {
+  content: "";
+  z-index: -2;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: inherit;
+  position: absolute;
+}
+.clip-text:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: .125em;
+  right: .125em;
+  bottom: .125em;
+  left: .125em;
+  background-color: #fff;
+ }
+.clip-textGif {
+  background-image:   url( https://3.bp.blogspot.com/-B_3kYDW-K9Y/WmeT3f98qcI/AAAAAAAAWnQ/IQ960bbrK4c34NqGzllJw4onhq3Mgf8cwCLcBGAs/s1600/1.gif);
+  text-transform: uppercase;
+  font-style: italic
+}

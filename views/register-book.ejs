@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <script src="/javascripts/jquery/jquery/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="/javascripts/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/javascripts/fontawesome/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sign">
+            <div class="header">
+                <h1>Register</h1>
+            </div>
+            <div class="main">
+                <form>
+                    <input type="text" value="" id="name" placeholder="Name">
+                    <br>
+                    <div class="password-toggle">
+                        <input type="text" value="" id="author" placeholder="Author">
+                    </div>
+                    <br>       
+                    <button href="#" type="button" id="btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <h6 style="font-weight: bold">Register Book</h6>          
+                    </button>
+                </form>
+            </div>
+            <span>
+                <ul>
+                    <li><a href="/login">Login</a></li>
+                </ul>
+            </span>
+        </div>
+    </div>
+</body>
+<script>
+    $("#btn").click(function(){
+        $.ajax({
+            url: "/register-book",
+            type:"POST",
+            data:{
+                name: $("#name").val(),
+                author: $("#author").val(),
+            }
+        }).then(function(data){
+            if(data.err == false){
+                alert("Register successful");
+                window.location.href = "/login";
+            }else{
+                alert("Register failed");
+                window.location.href = "/register-book";
+            }
+        })
+    })
+</script>
+</html>

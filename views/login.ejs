@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/javascripts/bootstrap/css/bootstrap.min.css">
+    <script src="/javascripts/jquery/jquery/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/javascripts/fontawesome/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="sign">
+            <div class="header">
+                <h1>Welcome</h1>
+            </div>
+            <div class="main">
+                <form>
+                    <input type="text" value="" id="username" placeholder="Username">
+                    <br>
+                    <div class="password-toggle">
+                        <input type="password" value="" id="password" placeholder="Password">
+                        <span id="togglePassword" class="fas fa-eye"></span>
+                    </div>
+                    <br>
+                    <button href="#" type="button" id="btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <h6 style="font-weight: bold">Login</h6>          
+                    </button>
+                </form>
+            </div>
+            <span>
+                <ul>
+                    <li><a href="/register">Register</a></li>
+                </ul>
+            </span>
+        </div>
+    </div>
+</body>
+<script>
+    const togglePassword = document.getElementById("togglePassword");
+    const inputPassword = document.getElementById("password");
+    const onToggleTypePassword = () =>{
+        togglePassword.classList.toggle("fa-eye-slash");
+
+        if(inputPassword.type === "password"){
+            inputPassword.type = "text";
+        }else{
+            inputPassword.type = "password";
+        }
+    };
+    togglePassword.addEventListener("click", onToggleTypePassword);
+
+    $("#btn").click(function () {
+        $.ajax({
+            url: "/login",
+            type: "POST",
+            data: {
+                username: $("#username").val(),
+                password: $("#password").val()
+            }
+        }).then(function (data) {
+            if (data.err == false) {
+                alert("Login successful!!!");
+                if(data.data[0].role == 1){
+                    window.location.href = "/student";
+                }else if(data.data[0].role == 2){
+                    window.location.href = "/teacher";
+                }else if(data.data[0].role == 3){
+                    window.location.href = "/manager";
+                }
+            } else {
+                alert("Login failed!!! Try again");
+            }
+        })
+    })
+</script>
+
+</html>

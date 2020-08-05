@@ -1,0 +1,100 @@
+[{
+  "_id": {
+    "$oid": "5f228a24ee7f1e30b8334d24"
+  },
+  "isLogin": true,
+  "username": "Đình Nam",
+  "role": 3,
+  "password": "$2a$10$H2/3TqnuAchBqLgLtzWzIuHNdP.a/vr8vnvwmB7Dw1Np/DBwI72Ri",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f228a2aee7f1e30b8334d25"
+  },
+  "isLogin": true,
+  "username": "Sang",
+  "role": 1,
+  "password": "$2a$10$g2mhg/7pxudG9W1Vwp920uwn6R682s2h2VUmP0kFdKG8ZlXsMEM8q",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f228a30ee7f1e30b8334d26"
+  },
+  "isLogin": false,
+  "username": "Tân",
+  "role": 1,
+  "password": "$2a$10$AB2FZhpiBSAVLJeUTZXkpuWXmxt6vMgZ3pRfJVrgvXFAcrFRRdULi",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f252ac85faaaf210c4ea9f6"
+  },
+  "isLogin": true,
+  "username": "Phong",
+  "role": 1,
+  "password": "$2a$10$vJFIYj/1brTD.yMX1A2x.u9AgYrA9sLOFEA8DptloAgQML0UkV0M2",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f278f1d407ab235fc40998e"
+  },
+  "isLogin": false,
+  "username": "Linh",
+  "role": 2,
+  "password": "$2a$10$JoMgeRn1/PeGPSXrUsfVhuf/EO0bM8eFmG4uPo.zxWyBgmiQjHT9e",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f27928c407ab235fc40998f"
+  },
+  "isLogin": true,
+  "username": "Tuấn Anh",
+  "role": 2,
+  "password": "$2a$10$nBwP5iENVsGPf7cZT75e6ubvvwtFMTCiHGt2BOLM1uWyV/HqvRfiO",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f2795a6cb1de505b078b4d4"
+  },
+  "isLogin": true,
+  "username": "Mạnh",
+  "role": 1,
+  "password": "$2a$10$AQI1./vxSSW6BF8Nk28JnuAf4nSn5OIZW7.4Ql0JlKqrRg2dFxVd.",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f27e3a18ba7413b14a5b6a7"
+  },
+  "isLogin": true,
+  "username": "SơnNT5",
+  "role": 2,
+  "password": "$2a$10$iQEi5g08olXQpSFkwL64kuQolkhszkXJI7L4aKplQVx9NVhp63NPS",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f27e3b18ba7413b14a5b6a8"
+  },
+  "isLogin": false,
+  "username": "CầuPĐ",
+  "role": 2,
+  "password": "$2a$10$vaE1ChyMBHajqugh09iNnu4DLeAAWP4H6v4391QcoMbKZUjEyoPLq",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f27e3c78ba7413b14a5b6a9"
+  },
+  "isLogin": false,
+  "username": "KhaĐK",
+  "role": 2,
+  "password": "$2a$10$5po2p4X4xJXttQWXh8rfau1KP5jhDlWt6IYH9g6u19eIeYZUpyBCu",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f2971bdf17f142734156a87"
+  },
+  "isLogin": false,
+  "username": "Khải",
+  "role": 1,
+  "password": "$2a$10$wt5N9MaIm1hQcXuaq9KzgedDAIsoCAaPLAtiPeW9oi2UcVdUUEt/q",
+  "__v": 0
+}]
