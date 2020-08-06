@@ -51,7 +51,7 @@ router.get("/register-book", (req,res,next)=>{
   res.render("register-book");
 })
 
-router.post("/register", (req,res,next)=>{
+router.post("/register", checkLogin, (req,res,next)=>{
   if(!req.body.username || !req.body.password || !req.body.class){
     return res.redirect("/register");
   }
@@ -68,11 +68,19 @@ router.post("/register", (req,res,next)=>{
     }
   })
 },(req,res,next)=>{
+  var data = res.data
   var account = {};
   account.username = req.body.username;
   if(req.body.class) account.class = req.body.class
   if(req.body.role){
-    account.role = req.body.role;
+    if(req.body.role >= data[0].role){
+      res.json({
+        err: true,
+        message: "Just register the lower grade person"
+      })
+    }else{
+      account.role = req.body.role;
+    }
   }else{
     account.role = 1
   }

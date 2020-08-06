@@ -104,7 +104,10 @@
                         window.location.href = "/manager";
                     }
                 })
-            } else {
+            } else if(data.message == "Just register the lower grade person"){
+                alert("Just register the lower grade person");
+                window.location.href = "/register";
+            }else{
                 alert("Register failed");
                 window.location.href = "/register";
             }
