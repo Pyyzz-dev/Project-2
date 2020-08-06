@@ -310,7 +310,8 @@
             $(".modal").css("display", "none");
         })
         $(".btn-Sure").click(function () {
-            var username = $(".info-teacher").html();
+            var username = $(`.info-teacher-${id}`).html();
+            console.log(username);
             $.ajax({
                 url: "/teacher",
                 type: "DELETE",

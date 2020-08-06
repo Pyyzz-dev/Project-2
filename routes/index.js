@@ -52,7 +52,7 @@ router.get("/register-book", (req,res,next)=>{
 })
 
 router.post("/register", (req,res,next)=>{
-  if(!req.body.username || !req.body.password){
+  if(!req.body.username || !req.body.password || !req.body.class){
     return res.redirect("/register");
   }
   accountModel.AccountModel.find({
@@ -70,6 +70,7 @@ router.post("/register", (req,res,next)=>{
 },(req,res,next)=>{
   var account = {};
   account.username = req.body.username;
+  if(req.body.class) account.class = req.body.class
   if(req.body.role){
     account.role = req.body.role;
   }else{
@@ -89,6 +90,9 @@ router.post("/register", (req,res,next)=>{
 })
 
 router.post("/register-book", (req,res,next)=>{
+  if(!req.body.name || !req.body.author){
+    return res.redirect("/register-book")
+  }
   accountModel.BookModel.find({
     name: req.body.name
   }).then(function(data){
